@@ -14,7 +14,7 @@ SDL_Texture *background,*game_backgrounds, *pelotita_buena, *pelotita_mala,*game
 SDL_Rect rect_background, rect_pelotita;
 
 void loopMenu();
-
+/*Ciclo del Game Over*/
 void loopGame_Over()
 {
     while(true)
@@ -86,8 +86,13 @@ void loopJuego(int mode)
 
         SDL_RenderCopy(renderer, game_backgrounds, NULL, &rect_background);
 
+    /*Variable mode = Modo de Juego, dependiendo que valor tenga el mode,
+    se cambia la velocidad en x*/
+
     if(mode == 0)
     {
+        /*Esta variable cont sirve para verificar en que punto se encuentra la pelotita
+        para asi si llega al borde cambie su direccion*/
        if(cont == 0)
         {
         FPS += 1.5;
@@ -147,6 +152,8 @@ void loopMenu()
             }
             if(Event.type == SDL_KEYDOWN)
             {
+
+        /*Aqui se elige la modalidad del juego*/
                 if(Event.key.keysym.sym == SDLK_a)
                     mode = 0;
                 if(Event.key.keysym.sym == SDLK_s)
