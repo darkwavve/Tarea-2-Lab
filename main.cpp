@@ -2,6 +2,7 @@
 #include<SDL2/SDL_image.h>
 #include<iostream>
 #include <stdlib.h>
+#include <stdio.h>
 #include <list>
 
 using namespace std;
@@ -41,6 +42,7 @@ void loopJuego(int mode)
     pelotitas_x.push_back(0);
     pelotitas_x.push_back(90);
     pelotitas_x.push_back(180);
+    pelotitas_x.push_back(270);
     float FPS = 0;
     int cont = 0;
 
@@ -74,8 +76,9 @@ void loopJuego(int mode)
                     {
                         pelotitas_x.erase(i);
                         --i;
-                        if(*i==0)
+                        if(pelotitas_x.size() == 0)
                             loopGame_Over();
+                        break;
                     }
                 }
             }
@@ -87,12 +90,12 @@ void loopJuego(int mode)
     {
        if(cont == 0)
         {
-        FPS += 0.5;
+        FPS += 1.5;
         rect_pelotita.x = FPS;
         }
         if(cont == 1)
         {
-        FPS -= 0.5;
+        FPS -= 1.5;
         rect_pelotita.x = FPS;
         }
         if(FPS >= rect_background.w-rect_pelotita.w)
@@ -105,12 +108,12 @@ void loopJuego(int mode)
     {
        if(cont == 0)
         {
-        FPS += 1.5;
+        FPS += 3;
         rect_pelotita.x = FPS;
         }
         if(cont == 1)
         {
-        FPS -= 1.5;
+        FPS -= 3;
         rect_pelotita.x = FPS;
         }
         if(FPS >= rect_background.w-rect_pelotita.w)
@@ -165,7 +168,7 @@ int main( int argc, char* args[] )
         return 10;
     }
     //Creates a SDL Window
-    if((window = SDL_CreateWindow("Image Loading", 100, 100, 500/*WIDTH*/, 250/*HEIGHT*/, SDL_WINDOW_RESIZABLE | SDL_RENDERER_PRESENTVSYNC)) == NULL)
+    if((window = SDL_CreateWindow("Ball Bouncer", 100, 100, 700/*WIDTH*/, 350/*HEIGHT*/, SDL_WINDOW_RESIZABLE | SDL_RENDERER_PRESENTVSYNC)) == NULL)
     {
         return 20;
     }

@@ -557,11 +557,12 @@
 	<SDL2/SDL_image.h>
 	<iostream>
 
-1413769500 source:c:\users\diaz\documents\codeblocks projects\sdl2testsimple-master\main.cpp
+1413998394 source:c:\users\diaz\documents\codeblocks projects\sdl2testsimple-master\main.cpp
 	<SDL.h>
 	<SDL2/SDL_image.h>
 	<iostream>
 	<stdlib.h>
+	<stdio.h>
 	<list>
 
 1394937196 c:\sdl2-2.0.3\include\sdl2\sdl.h
